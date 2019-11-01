@@ -1,12 +1,6 @@
 version: 2
 jobs:
   build:
-    branches:
-      only:
-        - 2
-      ignore:
-        - master
-
     docker:
       # specify the version you desire here
       - image: circleci/node:12.10
