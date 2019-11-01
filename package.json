@@ -1,0 +1,60 @@
+{
+  "name": "@reshader/engine",
+  "version": "2.0.0",
+  "source": "src/index.ts",
+  "main": "dist/reshader.js",
+  "module": "dist/reshader.mjs",
+  "unpkg": "dist/reshader.umd.js",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "test": "rm -rf dist/ && tsc --module commonjs && ava",
+    "build": "rm -rf dist/ && microbundle --tsconfig tsconfig.prod.json"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register",
+      "tsconfig-paths/register"
+    ],
+    "files": [
+      "./src/**/*.test.ts"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/color": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "ava": "^2.4.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "git-cz": "^3.3.0",
+    "husky": "^3.0.9",
+    "microbundle": "^0.11.0",
+    "prettier": "^1.18.2",
+    "semantic-release": "^15.13.28",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "color": "^3.1.2"
+  }
+}

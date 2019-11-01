@@ -1,0 +1,1 @@
+export declare const INVALID_COLOR_STRING = "\nYou are passing an invalid or malformed color string.\nTo learn more about our algorithm for hexadecimal color strings,\nplease refer to https://stackoverflow.com/a/9682781.\n";
