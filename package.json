@@ -1,11 +1,12 @@
 {
   "name": "@reshader/engine",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "source": "src/index.ts",
   "main": "dist/reshader.js",
   "module": "dist/reshader.mjs",
   "unpkg": "dist/reshader.umd.js",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "commit": "git-cz",
     "test": "rm -rf dist/ && tsc --module commonjs && ava",
