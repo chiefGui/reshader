@@ -6335,6 +6335,11 @@ npm@^6.10.3:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
+ntcjs@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/ntcjs/-/ntcjs-1.1.2.tgz#01d7e8aa90da4e519bef3cc64dcb414382e3b49d"
+  integrity sha1-AdfoqpDaTlGb7zzGTctBQ4LjtJ0=
+
 nth-check@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
