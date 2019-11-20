@@ -10,7 +10,7 @@
   "scripts": {
     "commit": "git-cz",
     "test": "rm -rf dist/ && tsc --module commonjs && ava",
-    "build": "rm -rf dist/ && microbundle --tsconfig tsconfig.prod.json"
+    "build": "rm -rf dist/ && yarn test && rm -rf dist/ && microbundle --tsconfig tsconfig.prod.json"
   },
   "config": {
     "commitizen": {
