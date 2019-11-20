@@ -34,11 +34,11 @@ export function createShades(
     darker,
     dark,
 
-    lightest,
-    lighter,
-    light,
-
     neutral: color,
+
+    light,
+    lighter,
+    lightest,
   }
 }
 

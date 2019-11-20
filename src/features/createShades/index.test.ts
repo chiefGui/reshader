@@ -16,9 +16,7 @@ test("return shades from #FF00FF color", t => {
     darkest: "#580057",
     darker: "#7D007D",
     dark: "#B300B2",
-
     neutral: "#FF00FF",
-
     light: "#FF4DFF",
     lighter: "#FFB1FF",
     lightest: "#FFFFFF",
