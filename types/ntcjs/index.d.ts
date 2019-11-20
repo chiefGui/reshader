@@ -1,3 +1,3 @@
 declare module "ntcjs" {
-  function name(colorHex: string): string,
+  function name(colorHex: string): string
 }
