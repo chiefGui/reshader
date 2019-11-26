@@ -1,2 +1,0 @@
-export declare const INVALID_COLOR_STRING = "\nYou are passing an invalid or malformed color string (%s).\nTo learn more about our algorithm for hexadecimal color strings,\nplease refer to https://stackoverflow.com/a/9682781.\n";
-export declare const INVALID_CREATE_SHADES_OPTION = "\nYou passed some invalid options when generating shades (%s).\nPlease refer to https://github.com/chiefGui/reshader to know more\nabout the available, valid options.\n";

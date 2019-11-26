@@ -1,8 +1,8 @@
 import test from "ava"
 
 import { createPalette } from "."
-import { INVALID_COLOR_STRING } from "src/exceptionMessages"
 import { format } from "src/utils"
+import { EXCEPTION__INVALID_COLOR_STRING } from "../createShades/index"
 
 test("throw exception when color value is invalid", t => {
   const exceptionError = t.throws(() => {
@@ -11,7 +11,10 @@ test("throw exception when color value is invalid", t => {
     })
   }, Error)
 
-  t.is(exceptionError.message, format(INVALID_COLOR_STRING, `"magenta"`))
+  t.is(
+    exceptionError.message,
+    format(EXCEPTION__INVALID_COLOR_STRING, `"magenta"`),
+  )
 })
 
 test("throw exception when color hex value is invalid", t => {
@@ -23,7 +26,10 @@ test("throw exception when color hex value is invalid", t => {
     })
   }, Error)
 
-  t.is(exceptionError.message, format(INVALID_COLOR_STRING, `"magenta"`))
+  t.is(
+    exceptionError.message,
+    format(EXCEPTION__INVALID_COLOR_STRING, `"magenta"`),
+  )
 })
 
 test("return shades for each color", t => {

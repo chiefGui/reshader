@@ -55,6 +55,6 @@ interface IColorShape {
   options?: ICreateShadesOptions
 }
 
-type TPalette<TColors extends TColorsShape> = {
+export type TPalette<TColors extends TColorsShape> = {
   [colorName in keyof TColors]: IShades
 }

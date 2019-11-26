@@ -20,7 +20,7 @@ interface IColorShape {
      */
     options?: ICreateShadesOptions;
 }
-declare type TPalette<TColors extends TColorsShape> = {
+export declare type TPalette<TColors extends TColorsShape> = {
     [colorName in keyof TColors]: IShades;
 };
 export {};

@@ -1,2 +1,2 @@
-export * from "./features/createShades"
-export * from "./features/createPalette"
+export * from "./features"
+export * from "./parsers"

@@ -1,10 +1,12 @@
 import test from "ava"
 
-import { createShades, IShades, ICreateShadesOptions } from "."
 import {
-  INVALID_COLOR_STRING,
-  INVALID_CREATE_SHADES_OPTION,
-} from "src/exceptionMessages"
+  createShades,
+  IShades,
+  ICreateShadesOptions,
+  EXCEPTION__INVALID_COLOR_STRING,
+  EXCEPTION__INVALID_CREATE_SHADES_OPTIONS,
+} from "."
 import { format } from "src/utils"
 
 test("throw exception when color is invalid", t => {
@@ -12,7 +14,10 @@ test("throw exception when color is invalid", t => {
     createShades("hello world")
   }, Error)
 
-  t.is(exceptionError.message, format(INVALID_COLOR_STRING, `"hello world"`))
+  t.is(
+    exceptionError.message,
+    format(EXCEPTION__INVALID_COLOR_STRING, `"hello world"`),
+  )
 })
 
 test("throw exception when option is invalid", t => {
@@ -24,7 +29,7 @@ test("throw exception when option is invalid", t => {
 
   t.is(
     exceptionError.message,
-    format(INVALID_CREATE_SHADES_OPTION, `"someRandomProp"`),
+    format(EXCEPTION__INVALID_CREATE_SHADES_OPTIONS, `"someRandomProp"`),
   )
 })
 
@@ -38,7 +43,10 @@ test("throw exception when more than one option is invalid", t => {
 
   t.is(
     exceptionError.message,
-    format(INVALID_CREATE_SHADES_OPTION, `"someRandomProp, thisIsInvalid"`),
+    format(
+      EXCEPTION__INVALID_CREATE_SHADES_OPTIONS,
+      `"someRandomProp, thisIsInvalid"`,
+    ),
   )
 })
 
