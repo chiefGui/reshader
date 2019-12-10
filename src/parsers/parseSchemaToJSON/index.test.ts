@@ -22,13 +22,13 @@ test("throw exception when Schema doesn't have the neutral shade", t => {
 test("return a JSON-parsed Schema", t => {
   const EXPECTED_SCHEMA: string = (`{
   "magenta": {
-    "darkest": "#580057",
-    "darker": "#7D007D",
-    "dark": "#B300B2",
+    "darkest": "#820082",
+    "darker": "#A300A3",
+    "dark": "#CC00CC",
     "neutral": "#FF00FF",
-    "light": "#FF4DFF",
-    "lighter": "#FFB1FF",
-    "lightest": "#FFFFFF"
+    "light": "#FF33FF",
+    "lighter": "#FF70FF",
+    "lightest": "#FFB9FF"
   }
 }` as unknown) as string
 
@@ -44,9 +44,9 @@ test("return a JSON-parsed Schema", t => {
 test("return a valid JSON with hydrated Schema name", t => {
   const EXPECTED_SCHEMA: string = (`{
   "moonRaker": {
-    "darkest": "#5A1682",
-    "darker": "#811FB9",
-    "dark": "#AE52E2",
+    "darkest": "#8821C1",
+    "darker": "#A43CDE",
+    "dark": "#C078E8",
     "neutral": "#E3C3F5",
     "light": "#FFFFFF",
     "lighter": "#FFFFFF",
@@ -66,11 +66,11 @@ test("return a valid JSON with hydrated Schema name", t => {
 test("return a valid JSON with spaced Schema", t => {
   const EXPECTED_SCHEMA: string = (`  {
     "vistaBlue": {
-      "darkest": "#235E3A",
-      "darker": "#328653",
-      "dark": "#4CBC78",
+      "darkest": "#348E57",
+      "darker": "#41B16D",
+      "dark": "#67C78D",
       "neutral": "#9EDBB6",
-      "light": "#F0FAF4",
+      "light": "#D5EFDF",
       "lighter": "#FFFFFF",
       "lightest": "#FFFFFF"
     }

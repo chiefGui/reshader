@@ -35,23 +35,23 @@ test("throw exception when color hex value is invalid", t => {
 test("return shades for each color", t => {
   const EXPECTED_PALETTE = {
     magenta: {
-      darkest: "#580057",
-      darker: "#7D007D",
-      dark: "#B300B2",
+      darkest: "#820082",
+      darker: "#A300A3",
+      dark: "#CC00CC",
       neutral: "#FF00FF",
-      light: "#FF4DFF",
-      lighter: "#FFB1FF",
-      lightest: "#FFFFFF",
+      light: "#FF33FF",
+      lighter: "#FF70FF",
+      lightest: "#FFB9FF",
     },
 
     cyan: {
-      darkest: "#005758",
-      darker: "#007D7D",
-      dark: "#00B2B3",
+      darkest: "#008282",
+      darker: "#00A3A3",
+      dark: "#00CCCC",
       neutral: "#00FFFF",
-      light: "#4DFFFF",
-      lighter: "#B1FFFF",
-      lightest: "#FFFFFF",
+      light: "#33FFFF",
+      lighter: "#70FFFF",
+      lightest: "#B9FFFF",
     },
   }
 
@@ -63,13 +63,13 @@ test("return shades for each color", t => {
 test("return shades for each color with 0.5 (non-default) contrast", t => {
   const EXPECTED_PALETTE = {
     magenta: {
-      darkest: "#580057",
-      darker: "#7D007D",
-      dark: "#B300B2",
+      darkest: "#820082",
+      darker: "#A300A3",
+      dark: "#CC00CC",
       neutral: "#FF00FF",
-      light: "#FF4DFF",
-      lighter: "#FFB1FF",
-      lightest: "#FFFFFF",
+      light: "#FF33FF",
+      lighter: "#FF70FF",
+      lightest: "#FFB9FF",
     },
 
     cyan: {

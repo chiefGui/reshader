@@ -2,13 +2,13 @@ import Color from "color"
 
 import { isValidHexColor, format } from "src/utils"
 
-const DEFAULT_CONTRAST_RATIO = 0.3
+const DEFAULT_CONTRAST_RATIO = 0.2
 
 /**
  * `createShades` returns the shades from `color`
  *
  * @param color the color the shades will be created from
- * @param options.contrastRatio (default: 0.3) from 0.1 to 1, how strong the contrast between shades will look like (0.1 is the slightest, 1 is the strongest)
+ * @param options.contrastRatio (default: 0.1) from 0.1 to 1, how strong the contrast between shades will look like (0.1 is the slightest, 1 is the strongest)
  */
 export function createShades(
   color: string,
