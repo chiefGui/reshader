@@ -1,5 +1,6 @@
 import { ISchema } from "../../features/schema"
-import { format } from "../../utils/format/index"
+import { format } from "../../utils/format"
+import { hydrateSchemaName } from "../../utils/hydrateSchemaName"
 
 export function parseSchemaToJSON(
   schema: ISchema,
@@ -15,13 +16,7 @@ export function parseSchemaToJSON(
     )
   }
 
-  const hydratedSchemaName = schemaName
-    .trim()
-    // camelize
-    .replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
-      return index == 0 ? word.toLowerCase() : word.toUpperCase()
-    })
-    .replace(/\s+/g, "")
+  const hydratedSchemaName = hydrateSchemaName(schemaName)
 
   const bracketSpaces =
     options.numberOfSpaces === 0 ? "" : getSpaces(options.numberOfSpaces)
@@ -60,6 +55,7 @@ of \`parseSchemaToJSON\`.
 
 A good way to have a valid Schema, is to generate the shades using the function \`createShades\`
 from this same engine. (import { createShades } from "@reshader/engine")
+import { hydrateSchemaName } from '../../utils/hydrateSchemaName/index';
 `
 
 interface IParseSchemaToJSONOptions {
