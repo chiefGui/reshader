@@ -1,27 +1,12 @@
 import test from "ava"
 
-import { parseSchemaToJSON, EXCEPTION__NO_NEUTRAL } from "./index"
-import { createShades } from "../../features/createShades/index"
-import { format } from "../../utils/format/index"
-import { ISchema } from "../../features/schema"
-
-test("throw exception when Schema doesn't have the neutral shade", t => {
-  const exceptionError = t.throws(() => {
-    parseSchemaToJSON(({ Black: { darkest: "#000" } } as unknown) as ISchema)
-  }, Error)
-
-  const objectAsString = `{
-  "Black": {
-    "darkest": "#000"
-  }
-}`
-
-  t.is(exceptionError.message, format(EXCEPTION__NO_NEUTRAL, objectAsString))
-})
+import { parseSchemaToJSON } from "."
+import { createShades } from "src/features/createShades"
+import { createSchema } from "../../features/createSchema/index"
 
 test("return a JSON-parsed Schema", t => {
-  const EXPECTED_SCHEMA: string = (`{
-  "magenta": {
+  const EXPECTED_JSON: string = (`{
+  "magentaFuchsia": {
     "darkest": "#820082",
     "darker": "#A300A3",
     "dark": "#CC00CC",
@@ -32,17 +17,19 @@ test("return a JSON-parsed Schema", t => {
   }
 }` as unknown) as string
 
-  t.deepEqual(
-    parseSchemaToJSON({
-      Magenta: createShades("#FF00FF"),
-    }),
+  const schema = createSchema({
+    shades: createShades("#FF00FF"),
+  })
 
-    EXPECTED_SCHEMA,
+  t.deepEqual(
+    parseSchemaToJSON(schema),
+
+    EXPECTED_JSON,
   )
 })
 
 test("return a valid JSON with hydrated Schema name", t => {
-  const EXPECTED_SCHEMA: string = (`{
+  const EXPECTED_JSON: string = (`{
   "moonRaker": {
     "darkest": "#8821C1",
     "darker": "#A43CDE",
@@ -54,17 +41,19 @@ test("return a valid JSON with hydrated Schema name", t => {
   }
 }` as unknown) as string
 
-  t.deepEqual(
-    parseSchemaToJSON({
-      "Moon Raker": createShades("#E3C3F5"),
-    }),
+  const schema = createSchema({
+    shades: createShades("#E3C3F5"),
+  })
 
-    EXPECTED_SCHEMA,
+  t.deepEqual(
+    parseSchemaToJSON(schema),
+
+    EXPECTED_JSON,
   )
 })
 
 test("return a valid JSON with spaced Schema", t => {
-  const EXPECTED_SCHEMA: string = (`  {
+  const EXPECTED_JSON: string = (`  {
     "vistaBlue": {
       "darkest": "#348E57",
       "darker": "#41B16D",
@@ -76,14 +65,13 @@ test("return a valid JSON with spaced Schema", t => {
     }
   }` as unknown) as string
 
-  t.deepEqual(
-    parseSchemaToJSON(
-      {
-        "Vista Blue": createShades("#9EDBB6"),
-      },
-      { numberOfSpaces: 2 },
-    ),
+  const schema = createSchema({
+    shades: createShades("#9EDBB6"),
+  })
 
-    EXPECTED_SCHEMA,
+  t.deepEqual(
+    parseSchemaToJSON(schema, { numberOfSpaces: 2 }),
+
+    EXPECTED_JSON,
   )
 })

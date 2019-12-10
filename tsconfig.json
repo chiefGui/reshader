@@ -2,6 +2,9 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "paths": {
+      "src/*": ["src/*"]
+    },
     "strict": true,
     "target": "es6",
     "noImplicitAny": true,

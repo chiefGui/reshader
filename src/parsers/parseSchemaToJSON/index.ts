@@ -1,6 +1,4 @@
-import { ISchema } from "../../features/schema"
-import { format } from "../../utils/format"
-import { hydrateSchemaName } from "../../utils/hydrateSchemaName"
+import { ISchema } from "src/features/createSchema"
 
 export function parseSchemaToJSON(
   schema: ISchema,
@@ -8,16 +6,6 @@ export function parseSchemaToJSON(
     numberOfSpaces: 0,
   },
 ): string {
-  const schemaName = Object.keys(schema)[0]
-
-  if (!schema[schemaName].neutral) {
-    throw new Error(
-      format(EXCEPTION__NO_NEUTRAL, JSON.stringify(schema, null, 2)),
-    )
-  }
-
-  const hydratedSchemaName = hydrateSchemaName(schemaName)
-
   const bracketSpaces =
     options.numberOfSpaces === 0 ? "" : getSpaces(options.numberOfSpaces)
 
@@ -32,14 +20,14 @@ export function parseSchemaToJSON(
       : schemaNameSpaces + getSpaces(options.numberOfSpaces)
 
   return `${bracketSpaces}{
-${schemaNameSpaces}"${hydratedSchemaName}": {
-${shadeSpaces}"darkest": "${schema[schemaName].darkest}",
-${shadeSpaces}"darker": "${schema[schemaName].darker}",
-${shadeSpaces}"dark": "${schema[schemaName].dark}",
-${shadeSpaces}"neutral": "${schema[schemaName].neutral}",
-${shadeSpaces}"light": "${schema[schemaName].light}",
-${shadeSpaces}"lighter": "${schema[schemaName].lighter}",
-${shadeSpaces}"lightest": "${schema[schemaName].lightest}"
+${schemaNameSpaces}"${schema.hydratedName}": {
+${shadeSpaces}"darkest": "${schema.shades.darkest}",
+${shadeSpaces}"darker": "${schema.shades.darker}",
+${shadeSpaces}"dark": "${schema.shades.dark}",
+${shadeSpaces}"neutral": "${schema.shades.neutral}",
+${shadeSpaces}"light": "${schema.shades.light}",
+${shadeSpaces}"lighter": "${schema.shades.lighter}",
+${shadeSpaces}"lightest": "${schema.shades.lightest}"
 ${schemaNameSpaces}}
 ${bracketSpaces}}`
 }
@@ -47,16 +35,6 @@ ${bracketSpaces}}`
 function getSpaces(numberOfSpaces: number): string {
   return new Array(numberOfSpaces).fill(" ").join("")
 }
-
-export const EXCEPTION__NO_NEUTRAL = `You are trying to parse a Reshader Schema to JSON,
-but no "neutral" shade was found. Instead, this is what we got: ("%s").
-Please, make sure you have a "neutral" shade present in the object of the very first argument
-of \`parseSchemaToJSON\`.
-
-A good way to have a valid Schema, is to generate the shades using the function \`createShades\`
-from this same engine. (import { createShades } from "@reshader/engine")
-import { hydrateSchemaName } from '../../utils/hydrateSchemaName/index';
-`
 
 interface IParseSchemaToJSONOptions {
   numberOfSpaces: number
