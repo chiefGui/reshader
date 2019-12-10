@@ -21,9 +21,9 @@ test("return palette name in camel case", t => {
 })
 
 test("return palette name without weird characters", t => {
-  const EXPECTED_NAME = "someColorName"
+  const EXPECTED_NAME = "someColorNameSomething"
 
-  t.is(hydrateSchemaName("Some/Color/Name"), EXPECTED_NAME)
+  t.is(hydrateSchemaName("Some/Color/Name'Something"), EXPECTED_NAME)
 })
 
 test("return palette name with numbers", t => {
