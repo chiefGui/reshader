@@ -43,7 +43,7 @@ export function createShades(
     darker,
     dark,
 
-    neutral: color,
+    neutral: color.toUpperCase(),
 
     light,
     lighter,
