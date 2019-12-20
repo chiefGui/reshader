@@ -32,6 +32,7 @@ test("return schema with specific formal name", t => {
     formalName: "Screamin' Green",
     hydratedName: "screaminGreen",
     shades,
+    contrastRatio: 0.2,
   }
 
   const schema = createSchema({ formalName: "Screamin' Green", shades })
@@ -46,9 +47,28 @@ test("return schema with generated formal name", t => {
     formalName: "Screamin' Green",
     hydratedName: "screaminGreen",
     shades,
+    contrastRatio: 0.2,
   }
 
   const schema = createSchema({ shades })
+
+  t.deepEqual(schema, EXPECTED_SCHEMA)
+})
+
+test("return schema with custom contrast ratio", t => {
+  const CUSTOM_CONTRAST_RATIO = 0.5
+  const shades = createShades("#67FF71", {
+    contrastRatio: CUSTOM_CONTRAST_RATIO,
+  })
+
+  const EXPECTED_SCHEMA: ISchema = {
+    formalName: "Screamin' Green",
+    hydratedName: "screaminGreen",
+    shades,
+    contrastRatio: CUSTOM_CONTRAST_RATIO,
+  }
+
+  const schema = createSchema({ shades, contrastRatio: CUSTOM_CONTRAST_RATIO })
 
   t.deepEqual(schema, EXPECTED_SCHEMA)
 })

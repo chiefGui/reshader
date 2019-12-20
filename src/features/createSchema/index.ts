@@ -4,7 +4,11 @@ import { IShades } from "../createShades"
 import { hydrateSchemaName } from "./hydrateSchemaName"
 import { format } from "src/utils/format"
 
-export function createSchema({ formalName, shades }: TCreateSchema): ISchema {
+export function createSchema({
+  formalName,
+  shades,
+  contrastRatio,
+}: TCreateSchema): ISchema {
   if (!shades) {
     throw new Error(EXCEPTION__UNDEFINED_SHADES)
   }
@@ -21,6 +25,7 @@ export function createSchema({ formalName, shades }: TCreateSchema): ISchema {
   return {
     formalName: actualFormalName,
     hydratedName,
+    contrastRatio: contrastRatio || 0.2,
     shades,
   }
 }
@@ -29,9 +34,13 @@ export interface ISchema {
   formalName: string
   hydratedName: string
   shades: IShades
+  contrastRatio: number
 }
 
-type TCreateSchema = Pick<ISchema, "shades"> & { formalName?: string }
+type TCreateSchema = Pick<ISchema, "shades"> & {
+  formalName?: string
+  contrastRatio?: number
+}
 
 export const EXCEPTION__UNDEFINED_SHADES = `"createSchema" requires at least the argument "shades"`
 export const EXCEPTION__NO_NEUTRAL = `You are trying to run "createSchema" without passing the "neutral" shade
