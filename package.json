@@ -1,6 +1,6 @@
 {
   "name": "@reshader/engine",
-  "version": "2.6.2",
+  "version": "2.7.0",
   "source": "src/index.ts",
   "main": "dist/reshader.js",
   "module": "dist/reshader.mjs",
