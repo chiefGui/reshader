@@ -1,6 +1,6 @@
 {
   "name": "@reshader/engine",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "source": "src/index.ts",
   "main": "dist/reshader.js",
   "module": "dist/reshader.mjs",
@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "commit": "git-cz",
+    "dev": "microbundle --watch -f cjs",
     "test": "rm -rf dist/ && tsc --module commonjs && ava",
     "build": "rm -rf dist/ && yarn test && rm -rf dist/ && microbundle --tsconfig tsconfig.prod.json"
   },
