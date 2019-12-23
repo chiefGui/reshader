@@ -1,5 +1,5 @@
-export function hydrateSchemaName(dirtyPaletteName: string): string {
-  const trimmed = dirtyPaletteName.trim()
+export function hydrateSwatchName(dirtySwatchName: string): string {
+  const trimmed = dirtySwatchName.trim()
   const camelized = camelize(trimmed)
   const validCharactersOnly = removeWeirdCharacters(camelized)
 

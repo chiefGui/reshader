@@ -1,1 +1,1 @@
-export * from "./parseSchemaToJSON"
+export * from "./parseSwatchToJSON"
